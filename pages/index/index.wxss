@@ -1,0 +1,126 @@
+/* 动态星星盒子 */
+.meteor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+/* 动态星星 */
+.meteor-items {
+  position: absolute;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+/* 动态星球盒子 */
+.star-box {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%,-10%);
+  width: 300rpx;
+  height: 300rpx;
+}
+/* 星球 */
+.star {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  width: 200rpx;
+  height: 200rpx;
+  background-image: linear-gradient(#56557d,#af37b1);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  box-shadow: 0 0 5rpx 1rpx #56557d;
+  border-radius: 50%;
+  animation: starchange 2.5s infinite;
+}
+/* 星球边框 */
+.star-border {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) rotateX(80deg);
+  box-sizing: border-box;
+  width: 300rpx;
+  height: 300rpx;
+  border: 15rpx solid #FFFFFF;
+  border-radius: 50%;
+  animation: starborderchange 2.5s;
+}
+/* 选择按钮大盒子 */
+.select-box {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%,-70%);
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-content: space-around;
+  width: 85%;
+  height: 50%;
+  animation: selectbox 2.5s;
+}
+/* 选择按钮大盒子 */
+.select-items {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 1;
+  width: 130rpx;
+  height: 180rpx;
+  animation: selectitemschange 5s;
+  animation-timing-function: ease;
+}
+/* 按钮样式 */
+.select-btn {
+  position: relative;
+  width: 130rpx;
+  height: 130rpx;
+  border-radius: 50%;
+  background-image: linear-gradient(#56557d,#af37b1);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+/* 按钮icon样式 */
+.select-btn > i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 35rpx;
+  color: #FFFFFF;
+}
+/* 定位按钮名 */
+text {
+  color: #e0e0e0;
+  font-size: 25rpx;
+  letter-spacing: 5rpx;
+}
+/* 变化 */
+/* 星球变化 */
+@keyframes starchange {
+  0% {top: 50%;left: 50%;}
+  50% {top: 55%;left: 50%;}
+  100% {top: 50%;left: 50%;}
+}
+/* 星球边框变化 */
+@keyframes starborderchange {
+  0% {transform: translate(-50%,-50%) rotateX(60deg);}
+  100% {transform: translate(-50%,-50%) rotateX(80deg);}
+}
+/* 选择按钮盒子变化 */
+@keyframes selectbox {
+  0% {left: -100%;}
+  100% {left: 50%;}
+}
+/* 按钮变化 */
+@keyframes selectitemschange {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}

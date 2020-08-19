@@ -1,0 +1,74 @@
+<!-- 今日运势 -->
+<view class="today" style="display:{{today_isShow}};">
+  <!-- 标题 -->
+  <view class="star-name">{{starName}}今日运势</view>
+  <view class="canvas-box" style="width:{{canvasBoxW}}px;height:{{canvasBoxH}}px;">
+    <text>健康指数{{health}}</text>
+    <text>爱情指数{{love}}</text>
+    <text>工作指数{{work}}</text>
+    <text>财运指数{{money}}</text>
+    <canvas id="todayCanvas" type="2d" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"></canvas>
+  </view>
+  <!-- 文字阐述 -->
+  <text>综合指数：{{all}}</text>
+  <text>幸运颜色：{{color}}</text>
+  <text>速配星座：{{QFriend}}</text>
+  <text>幸运数字：{{number}}</text>
+  <text>今日概述：{{summary}}</text>
+</view>
+<!-- 明日运势 -->
+<view class="tomorrow" style="display:{{tomorrow_isShow}};">
+  <!-- 标题 -->
+  <view class="star-name">{{starName}}明日运势</view>
+  <view class="canvas-box" style="width:{{canvasBoxW}}px;height:{{canvasBoxH}}px;">
+    <text>健康指数{{health}}</text>
+    <text>爱情指数{{love}}</text>
+    <text>工作指数{{work}}</text>
+    <text>财运指数{{money}}</text>
+    <canvas id="tomorrowCanvas" type="2d" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;"></canvas>
+  </view>
+  <!-- 文字阐述 -->
+  <text>综合指数：{{all}}</text>
+  <text>幸运颜色：{{color}}</text>
+  <text>速配星座：{{QFriend}}</text>
+  <text>幸运数字：{{number}}</text>
+  <text>今日概述：{{summary}}</text>
+</view>
+<!-- 周运势 -->
+<view class="week" style="display:{{week_isShow}};">
+  <!-- 标题 -->
+  <view class="star-name">{{starName}}本周运势</view>
+  <!-- 文字阐述 -->
+  <text>{{job}}</text>
+  <text>{{love}}</text>
+  <text>{{money}}</text>
+  <text>{{work}}</text>
+</view>
+<!-- 月运势 -->
+<view class="month" style="display:{{month_isShow}};">
+  <!-- 标题 -->
+  <view class="star-name">{{starName}}本月运势</view>
+  <!-- 文字阐述 -->
+  <text>{{all}}</text>
+  <text>{{health}}</text>
+  <text>{{love}}</text>
+  <text>{{money}}</text>
+  <text>{{work}}</text>
+</view>
+<!-- 年运势 -->
+<view class="year" style="display:{{year_isShow}};">
+  <!-- 标题 -->
+  <view class="star-name">{{starName}}本年运势</view>
+  <!-- 文字阐述 -->
+    <text>年度密码概述：{{mimaInfo}}</text>
+    <text>年度密码说明：{{mimaText}}</text>
+    <text>事业运：{{career}}</text>
+    <text>感情运：{{love}}</text>
+    <text>财运：{{finance}}</text>
+    <text>健康：{{health}}</text>
+</view>
+<!-- 底部按钮 -->
+<view class="bottom-btn">
+  <!-- 解锁按钮 -->
+  <view wx:for="{{lock}}" wx:key="id" class="lock" data-text="{{item.dataText}}" data-bind="{{item.bind}}" bindtap="{{item.bind}}"></view>
+</view>

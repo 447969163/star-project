@@ -1,0 +1,23 @@
+<!-- 动态星盒子 -->
+<view class="meteor">
+ <!-- 星星 -->
+ <view wx:for="{{meteor}}" wx:key="id" class="meteor-items" style="width:{{item.meteorWH}}rpx;height:{{item.meteorWH}}rpx;left:{{item.meteorL}}%;top:{{item.meteorT}}%;transform:translate(-{{item.meteorL}}%,-{{item.meteorT}}%);opacity:{{item.meteorOpcity}}"></view>
+</view>
+<!-- 星球盒子 -->
+<view class="star-box">
+  <!-- 星球 -->
+  <view class="star"></view>
+  <!-- 环绕星球 -->
+  <view class="star-border"></view>
+</view>
+<!-- 选择按钮大盒子 -->
+<view class="select-box">
+  <!-- 选择按钮小盒子 -->
+  <view class="select-items" wx:for="{{star}}" wx:key="id">
+    <!-- 按钮 -->
+    <view class="select-btn" data-link="{{item.name}}" bindtap="sendTo">
+      <i class="iconfont {{item.icon}}"></i>
+    </view>
+    <text>{{item.name}}</text>
+  </view>
+</view>

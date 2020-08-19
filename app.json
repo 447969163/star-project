@@ -1,0 +1,11 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/answer/answer"
+  ],
+  "window":{
+    "navigationStyle":"custom"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
