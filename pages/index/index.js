@@ -16,32 +16,33 @@ Page({
     ],
     meteor: []
   },
-  //创建随机流星
+  //创建随机星星
   createMeteor: function () {
-  //流星数量
-  let meteorNum = 15
-  //存放流星随机位置和宽高
-  let meteorArr = []
-  //开始创建
-  for (let i = 0 ; i < meteorNum ; i++) {
-    //宽和高
-    meteorArr.push({meteorWH:Math.random()*10+5,meteorL:Math.random()*100,meteorT:Math.random()*100,meteorOpcity:Math.random()*0.9})
-  }
-  //更新到data
-  this.setData({
-    meteor: meteorArr
-  })
+    //星星数量
+    let meteorNum = 15
+    //存放星星随机位置和宽高
+    let meteorArr = []
+    //开始创建
+    for (let i = 0 ; i < meteorNum ; i++) {
+      //宽和高
+      meteorArr.push({meteorWH:Math.random()*10+5,meteorL:Math.random()*100,meteorT:Math.random()*100,meteorOpcity:Math.random()*0.9})
+    }
+    //更新到data
+    this.setData({
+      meteor: meteorArr
+    })
   },
-  //跳转
+  // 跳转测试结果页面
   sendTo: function(e) {
     wx.navigateTo({
-      url: '/pages/answer/answer?name=' + e.currentTarget.dataset.link
+      url: '/pages/result/result?name=' + e.currentTarget.dataset.link
     })
   },
   onLoad: function () {
     let that = this
+    // 定时创建星星
     setInterval(() => {
       that.createMeteor()
-    }, 2000)
+    }, 1000)
   }
 })

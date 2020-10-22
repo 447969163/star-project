@@ -1,0 +1,13 @@
+/* pages/result/result.wxss */
+canvas{
+  margin: 35% auto 0 auto;
+  border-radius: 1%;
+}
+button{
+  display: block;
+  margin: 10% auto;
+  outline: none;
+  border: 0;
+  color: #FFFFFF;
+  background-color: blueviolet;
+}
