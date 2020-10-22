@@ -1,3 +1,5 @@
+// 在页面中定义激励视频广告
+let videoAd = null
 Page({
   data: {
     // 星座名
@@ -77,23 +79,56 @@ Page({
       })
   },
   download(){
-    // 绘制canvas转为图片
-    wx.canvasToTempFilePath({
-      canvas:this.data.canvasDom,
-      fileType: 'jpg',
-      success(res){
-        // 保存到用户相册
-        wx.saveImageToPhotosAlbum({
-          filePath:res.tempFilePath,
-          success(res) { 
-            console.log('保存成功')
+    // 用户触发广告后，显示激励视频广告
+    if (videoAd) {
+      videoAd.show().catch(() => {
+        // 失败重试
+        videoAd.load()
+          .then(() => videoAd.show())
+          .catch(err => {
+            console.log('激励视频 广告显示失败')
+          })
+      })
+    }
+  },
+  save(){
+        // 绘制canvas转为图片
+        wx.canvasToTempFilePath({
+          canvas:this.data.canvasDom,
+          fileType: 'jpg',
+          success(res){
+            // 保存到用户相册
+            wx.saveImageToPhotosAlbum({
+              filePath:res.tempFilePath,
+              success(res) { 
+                console.log('保存成功')
+              }
+            })
           }
         })
-      }
-    })
   },
   onLoad: function (options) {
     let that = this
+    // 在页面onLoad回调事件中创建激励视频广告实例
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-26a843f3694d6629'
+      })
+      videoAd.onLoad(() => {})
+      videoAd.onError((err) => {})
+      videoAd.onClose((res) => {
+          // 用户点击了【关闭广告】按钮
+          if (res && res.isEnded) {
+            that.save()
+          } else {
+            wx.showToast({
+              title: '请观看完毕广告！',
+              icon: 'none',
+              duration: 1500
+            })
+          }
+      })
+    }
     // 获取星座名
     that.setData({
       name: options.name
